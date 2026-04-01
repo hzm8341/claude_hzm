@@ -17,3 +17,5 @@ Thumbs.db
 # LFS (if needed)
 # *.bin
 # *.pak
+.claude/
+.omc/

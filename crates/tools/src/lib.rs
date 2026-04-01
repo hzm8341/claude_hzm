@@ -1716,6 +1716,9 @@ impl ApiClient for AnthropicRuntimeClient {
                                 input.push_str(&partial_json);
                             }
                         }
+                        ContentBlockDelta::Other => {
+                            // Ignore MiniMax thinking delta
+                        }
                     },
                     ApiStreamEvent::ContentBlockStop(_) => {
                         if let Some((id, name, input)) = pending_tool.take() {
@@ -1859,6 +1862,9 @@ fn push_output_block(
                 input.to_string()
             };
             *pending_tool = Some((id, name, initial_input));
+        }
+        OutputContentBlock::Other => {
+            // Ignore unknown types (like MiniMax thinking)
         }
     }
 }

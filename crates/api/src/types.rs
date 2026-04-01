@@ -135,6 +135,9 @@ pub enum OutputContentBlock {
         name: String,
         input: Value,
     },
+    /// MiniMax extended type for thinking/reasoning
+    #[serde(other)]
+    Other,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -190,6 +193,9 @@ pub struct ContentBlockDeltaEvent {
 pub enum ContentBlockDelta {
     TextDelta { text: String },
     InputJsonDelta { partial_json: String },
+    /// MiniMax extended type for thinking/reasoning delta
+    #[serde(other)]
+    Other,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
