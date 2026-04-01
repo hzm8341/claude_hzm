@@ -54,7 +54,7 @@ impl Display for ApiError {
             Self::MissingApiKey => {
                 write!(
                     f,
-                    "ANTHROPIC_AUTH_TOKEN or ANTHROPIC_API_KEY is not set; export one before calling the Anthropic API"
+                    "MINIMAX_API_KEY or ANTHROPIC_API_KEY is not set; export one before calling the API"
                 )
             }
             Self::ExpiredOAuthToken => {
